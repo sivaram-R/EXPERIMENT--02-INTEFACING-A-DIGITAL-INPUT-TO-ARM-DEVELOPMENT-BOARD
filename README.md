@@ -58,23 +58,13 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 #include "stdio.h"
 #include "stdbool.h"
 bool hm;
-
-
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-
-
 int main(void)
 {
-
   HAL_Init();
-
-
   SystemClock_Config();
-
-
   MX_GPIO_Init();
-
   while (1)
   {
 	  hm=HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_13);
@@ -95,10 +85,7 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-
-
   HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1);
-
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV1;
@@ -120,7 +107,6 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 }
-
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -137,25 +123,16 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 }
-
-
 void Error_Handler(void)
 {
-
-
   __disable_irq();
   while (1)
   {
   }
-
 }
-
 #ifdef  USE_FULL_ASSERT
-
-
 void assert_failed(uint8_t *file, uint32_t line)
 {
-
 }
 #endif
 ```
